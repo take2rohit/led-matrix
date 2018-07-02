@@ -1,4 +1,4 @@
-void LED (int x,int y)
+void led (int x,int y)
 {
   digitalWrite(2+x,LOW);
   digitalWrite(8+y,HIGH);
@@ -18,14 +18,27 @@ void setup()
      pinMode(i,OUTPUT);
   off();
 }
-
+int x=4;char time;
 void loop() 
 {
-  for (int i=0; i<5; i++)
-    for (int j=0; j<5; j++)
-    {
-      LED(i,j);
-      delay(500);
-      off();
-    }
+  time++;
+  led(4-x,0);off(); //letter p starts
+  led(4-x,1);off();
+  led(4-x,2);off();
+  led(4-x,3);off();
+  led(4-x,4);off();
+  led(3-x,4);off();
+  led(2-x,4);off();
+  led(1-x,4);off();
+  led(3-x,2);off();
+  led(1-x,3);off();
+  led(1-x,2);off();
+  led(2-x,2);off(); //letter p ends
+
+  if (x==-4)
+    x=4;
+  if (time >1 && (time % 100==0))
+    x--;
+  
+  
 }
