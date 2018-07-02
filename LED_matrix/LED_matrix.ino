@@ -18,11 +18,11 @@ void setup()
      pinMode(i,OUTPUT);
   off();
 }
-int x=4;char time;
+int x=4;long int time;
 void loop() 
 {
   time++;
-  led(4-x,0);off(); //letter p starts
+  led(4-x,0);off(); //letter r starts
   led(4-x,1);off();
   led(4-x,2);off();
   led(4-x,3);off();
@@ -33,12 +33,26 @@ void loop()
   led(3-x,2);off();
   led(1-x,3);off();
   led(1-x,2);off();
-  led(2-x,2);off(); //letter p ends
+  led(3-x,1);off();
+  led(2-x,0);off();
+  led(1-x,0);off();
+  led(2-x,2);off(); //letter r ends
 
-  if (x==-4)
+  if (x==-9)
     x=4;
-  if (time >1 && (time % 100==0))
+  if (time >1 && (time % 800==0))
     x--;
-  
+
+  if (time>5000)
+  {
+    for (char i=0;i<5;i++) // letter o starts
+      led(4-x-5,i);off();
+    for (char i=0;i<5;i++)
+      led(1-5-x,i);off(); 
+    led(2-5-x,0);off();
+    led(2-5-x,4);off();
+    led(3-5-x,0);off();
+    led(3-5-x,4);off(); //letter o ends
+  }
   
 }
